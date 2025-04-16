@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/ui/_core/app_colors.dart';
+import 'package:myapp/ui/home/home_screen.dart';
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});
@@ -18,7 +19,6 @@ class SplashScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 spacing: 32.0,
                 children: [
-                  
                   Image.asset('assets/logo.png', width: 192),
                   Column(
                     children: [
@@ -28,13 +28,28 @@ class SplashScreen extends StatelessWidget {
                       ),
                       Text(
                         "melhor experiência culinaria!",
-                        style: TextStyle(color: AppColors.maincolor, fontSize: 22.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                          color: AppColors.maincolor,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
                     ],
                   ),
                   SizedBox(
                     width: double.infinity,
-                    child: ElevatedButton(onPressed: () {}, child: Text("Bora!"))),
+                    child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushReplacement(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return HomeScreen();
+                          }),
+                        );
+                      },
+                      child: Text("Bora!"),
+                    ),
+                  ),
                 ],
               ),
             ),
